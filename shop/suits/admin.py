@@ -1,9 +1,15 @@
 from django.contrib import admin
+from mptt.admin import MPTTModelAdmin
+
 from . import models
 
 
-admin.site.register(models.Category)
+@admin.register(models.Product)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ["title", "category", "price"]
+
+
+admin.site.register(models.Category, MPTTModelAdmin)
 admin.site.register(models.Tag)
 admin.site.register(models.Type)
-admin.site.register(models.Product)
 admin.site.register(models.Comment)
