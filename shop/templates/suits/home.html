@@ -1,0 +1,268 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="carousel-ex" class="carousel slide carousel-fade pt-4" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li class="active" data-target="#carousel-ex" data-slide-to="0"></li>
+        <li data-target="#carousel-ex" data-slide-to="1"></li>
+        <li data-target="#carousel-ex" data-slide-to="2"></li>
+
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+          <div class="view"  style="background-image: url('img/sale__.jpg') ;
+          background-repeat: no-repeat; background-size: cover;">
+            <div class="mask rgba-black-strong d-flex
+            justify-content-center align-items-center">
+              <div class="text-center white-text mx-5 wow fadeIn">
+                <h1 class="mb-4">Gentelman</h1>
+
+                <p>
+                  <strong>Качесвеннные костюмы рядом с вами</strong>
+                </p>
+
+
+                <p class="mb-4 d-none d-md-block">
+                  <strong>Красиво не значит дорого. Всегда доступные цены и индивидульный подход</strong>
+                </p>
+                <a href="#" class="btn btn-outline-white btn-lg">
+                  Каталог <i class="fa fa-graduation-cap ml-2"></i>
+                </a>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="view"  style="background-image: url('https://henderson.ru/uimages/catalog/announce-main/m621_20220622142945.png') ;
+          background-repeat: no-repeat; background-size: cover;">
+            <div class="mask rgba-black-strong d-flex
+            justify-content-center align-items-center">
+              <div class="text-center white-text mx-5 wow fadeIn">
+                <h1 class="mb-4">Gentelman</h1>
+
+                <p>
+                  <strong>Качесвеннные костюмы рядом с вами</strong>
+                </p>
+
+
+                <p class="mb-4 d-none d-md-block">
+                  <strong>Красиво не значит дорого. Всегда доступные цены и индивидульный подход</strong>
+                </p>
+                <a href="#" class="btn btn-outline-white btn-lg">
+                  Каталог <i class="fa fa-graduation-cap ml-2"></i>
+                </a>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="view"  style="background-image: url('https://i.pinimg.com/originals/99/11/ee/9911ee2ba61e815cca2cef1fd260d76e.jpg') ;
+          background-repeat: no-repeat; background-size: cover;">
+            <div class="mask rgba-black-strong d-flex
+            justify-content-center align-items-center">
+              <div class="text-center white-text mx-5 wow fadeIn">
+                <h1 class="mb-4">Gentelman</h1>
+
+                <p>
+                  <strong>Качесвеннные костюмы рядом с вами</strong>
+                </p>
+
+
+                <p class="mb-4 d-none d-md-block">
+                  <strong>Красиво не значит дорого. Всегда доступные цены и индивидульный подход</strong>
+                </p>
+                <a href="#" class="btn btn-outline-white btn-lg">
+                  Каталог <i class="fa fa-graduation-cap ml-2"></i>
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="#carousel-ex" class="carousel-control-prev"
+        role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </a>
+        <a href="#carousel-ex" class="carousel-control-next"
+        role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </a>
+      </div>
+  </div>
+<main>
+  <div class="container">
+
+      <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5">
+        <sapn class="navbar-brand">Categories:</sapn>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nextNav" aria-controls="nextNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="nextNav">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a href="" class="nav-link">Shirt</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">Sport</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">Wears</a>
+            </li>
+          </ul>
+
+          <form class="form-inline">
+            <div class="md-form my-0">
+              <input type="text" class="form-control mr-sm-2" placeholder="Search" aria-label="Search">
+            </div>
+          </form>
+
+        </div>
+
+      </nav>
+   <section class="text-center mb-4">
+     <div class="row wow fadeIn">
+      {% for product in product_list %}
+          {% if forloop.counter0 < 4 %}
+            <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card">
+
+              <div class="view overlay">
+                <img class ="card-img-top"  src="{{ product.image.url }}" alt="Blue suit">
+                <a href="{{ product.get_absolute_url }}">
+                  <div class="mask rgba-white-slight"> </div>
+                </a>
+              </div>
+
+              <div class="card-body text-center">
+                <a href="" class="grey-text">
+                  <h5>{{ product.category }}</h5>
+                </a>
+
+                <h5>
+                  <strong>
+                    <a href="{{ product.get_absolute_url }}" class="dark-grey-text">{{ product.title }}</a>
+                      <span class="badge badge-pill danger-color">NEW</span>
+                  </strong>
+                </h5>
+                <h4 class="font-weight-bold blue-text">
+                  <strong>{{ product.price }} p.</strong>
+                </h4>
+              </div>
+
+
+
+            </div>
+          </div>
+          {% endif %}
+          {% if forloop.counter0 >= 4 and forloop0 < 8 %}
+            <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card">
+
+              <div class="view overlay">
+                <img class ="card-img-top"  src="{{ product.image.url }}" alt="Blue suit">
+                <a href="{{ product.get_absolute_url }}">
+                  <div class="mask rgba-white-slight"> </div>
+                </a>
+              </div>
+
+              <div class="card-body text-center">
+                <a href="" class="grey-text">
+                  <h5>{{ product.category }}</h5>
+                </a>
+
+                <h5>
+                  <strong>
+                    <a href="{{ product.get_absolute_url }}" class="dark-grey-text">{{ product.title }}</a>
+                      <span class="badge badge-pill danger-color">NEW</span>
+                  </strong>
+                </h5>
+                <h4 class="font-weight-bold blue-text">
+                  <strong>{{ product.price }} p.</strong>
+                </h4>
+              </div>
+
+
+
+            </div>
+          </div>
+          {% endif %}
+          {% if forloop.counter0 >= 8 and forloop0 < 12 %}
+            <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card">
+
+              <div class="view overlay">
+                <img class ="card-img-top"  src="{{ product.image.url }}" alt="Blue suit">
+                <a href="{{ product.get_absolute_url }}">
+                  <div class="mask rgba-white-slight"> </div>
+                </a>
+              </div>
+
+              <div class="card-body text-center">
+                <a href="" class="grey-text">
+                  <h5>{{ product.category }}</h5>
+                </a>
+
+                <h5>
+                  <strong>
+                    <a href="{{ product.get_absolute_url }}" class="dark-grey-text">{{ product.title }}</a>
+                      <span class="badge badge-pill danger-color">NEW</span>
+                  </strong>
+                </h5>
+                <h4 class="font-weight-bold blue-text">
+                  <strong>{{ product.price }} p.</strong>
+                </h4>
+              </div>
+
+
+
+            </div>
+          </div>
+          {% endif %}
+      {% endfor %}
+     </div>
+   </section>
+
+
+      <nav class="d-flex justify-content-center wow fadeIn">
+        <ul class="pagination pg-blue">
+          <li class="page-item disabled">
+            <a href="" class="page-link" aria-label="Previous">
+              <span aria-haspopup="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item active">
+            <a href="" class="page-link" aria-label="Previous">
+              <span aria-haspopup="true">1</span>
+            </a>
+          </li>
+          <li class="page-item">
+            <a href="" class="page-link" aria-label="Previous">
+              <span aria-haspopup="true">2</span>
+            </a>
+          </li>
+          <li class="page-item">
+            <a href="" class="page-link" aria-label="Previous">
+              <span aria-haspopup="true">3</span>
+            </a>
+          </li>
+          <li class="page-item">
+            <a href="" class="page-link" aria-label="Next">
+              <span aria-haspopup="true">&raquo;</span>
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+    </div>
+</main>
+{% endblock content %}

@@ -1,4 +1,7 @@
+from ckeditor.fields import RichTextField
 from django.db import models
+from django.urls import reverse
+#from django.utils.text import slugify
 from mptt.models import MPTTModel, TreeForeignKey
 
 
@@ -55,7 +58,7 @@ class Product(models.Model):
     """Товар/Продукт"""
     title = models.CharField('Название', max_length=200)
     image = models.ImageField(upload_to='articles/')
-    description = models.TextField('Описание')
+    description = RichTextField()
     category = models.ForeignKey(
         Category,
         related_name="product",
@@ -71,6 +74,9 @@ class Product(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("product_single", kwargs={"slug": self.category.url, "product_slug": self.url})
 
     class Meta:
         verbose_name = 'Товар'

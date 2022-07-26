@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content %}
+  <main class="mt-5 pt-4">
+    <div class="container dark-grey-text mt-5">
+        <div class="row wow fadeIN">
+            <div class="col-md-6 mb-4">
+                <img src="{{ product.image.url }}" alt="k1" class="img-fluid">
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="p-4">
+                    <div class="mb-3">
+                        <a href="">
+                            <span class="badge purple mr-1">{{ product.category }}</span>
+                        </a>
+                        <a href="">
+                            <span class="badge red mr-1">New</span>
+                        </a>    
+                    </div>
+                    <p class="lead">
+                        <span class="mr-1">
+                            <del>{{ product.price }} р</del>
+                        </span>
+                        <span class="mr-1">
+                            {{ product.price }} р
+                        </span>
+                    </p>
+                    <p class="lead font-weight-bold">{{ product.title }}</p>
+                    <p>{{ product.description | safe }}</p>
+                    <div class="mb-3">
+                        {% for tag in product.tags.all %}
+                        <a href="">
+                            <span class="badge grey mr-1"> {{ tag.name }}</span>
+                        </a>
+                        {% endfor %}
+                    </div>
+                    <form action="" class="d-flex justify-content-left">
+                        <input type="number" value="1" aria-label="Search" 
+                        style="width: 100px;" class="form-control">
+                        <button type="submit" class="btn btn-primary btn-md my-0 p">
+                            В корзину <i class="fa fa-shopping-cart ml-1"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <div class="row d-flex justify-content-center wow fadeIn">
+            <div class="cold-md-6 text-center">
+                <h4 class="my-4 h4">О Нас</h4>
+                <p>Магазин мужского стиля Gentelman — это ассортимент из 
+                    более чем 400 костюмов в наличии, размеры от 44 до 70. 
+                    Широкий выбор классической одежды и аксессуаров для современных 
+                    и уверенных в себе мужчин. Коллекции включают в себя деловые, 
+                    вечерние и свадебные костюмы, рубашки и брюки. У нас вы найдете 
+                    все — от смокингов до обуви, ремней, запонок и нагрудных платков.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-12 mb-4  wow fadeIn">
+                <img src="img/k1.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="col-lg-4 col-md-12 mb-4  wow fadeIn">
+                <img src="img/k1.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="col-lg-4 col-md-12 mb-4 wow fadeIn">
+                <img src="img/k1.jpg" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+  </main>
+{% endblock content %}
+  
+
+
+
+
+
