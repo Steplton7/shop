@@ -1,0 +1,23 @@
+{% load menu_tags %}
+
+     <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5">
+        <sapn class="navbar-brand">Каталог:</sapn>
+
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nextNav" aria-controls="nextNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+         </button>
+
+         <div class="collapse navbar-collapse" id="nextNav">
+          <ul class="navbar-nav mr-auto">
+
+            {% get_menu_categories %}
+
+          </ul>
+
+            <form class="form-inline">
+            <div class="md-form my-0">
+              <input type="text" class="form-control mr-sm-2" placeholder="Search" aria-label="Search">
+            </div>
+          </form>
+        </div>
+      </nav>

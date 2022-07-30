@@ -1,0 +1,7 @@
+{% load mptt_tags %}
+
+{% recursetree list_category %}
+    <li class="nav-item">
+        <a href="{% url 'product_list' node.url %}" class="nav-link">  {{ node.name }} </a>
+    </li>
+{% endrecursetree %}

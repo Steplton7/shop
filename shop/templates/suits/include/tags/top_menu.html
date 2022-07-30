@@ -1,14 +1,15 @@
 {% load mptt_tags %}
 
 
-
-<li class="nav-item">
-{% recursetree list_category %}
-
-    <a class="nav-link"  href="{% url 'product_list' node.url %}" >
-        {{ node.name }}
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Каталог
     </a>
-
- {% endrecursetree %}
-
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        {% recursetree list_category %}
+            <a class="dropdown-item" href="{% url 'product_list' node.url %}">
+                {{ node.name }}
+            </a>
+        {% endrecursetree %}
+    </div>
 </li>
