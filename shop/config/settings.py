@@ -31,7 +31,8 @@ INSTALLED_APPS = [
     'ckeditor',
     'psycopg2',
 
-    'suits'
+    'suits',
+    'contact',
 ]
 
 MIDDLEWARE = [

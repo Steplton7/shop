@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style type="text/css">
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    h1 {
+      font-size: 50px;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+    .contact__form .contact__form__title h2 {
+	text-transform: uppercase;
+	margin-bottom: 18px;
+}
+
+
+.contact__form .contact__form__title p {
+	font-size: 15px;
+	margin-bottom: 20px;
+}
+
+
+.contact__form form input {
+	height: 46px;
+	width: 100%;
+	background: transparent;
+	border: 1px solid #e1e1e1;
+	font-size: 14px;
+	color: #444444;
+	padding-left: 20px;
+	margin-bottom: 20px;
+}
+
+
+.contact__form form input:last-child {
+	color: #444444;
+}
+
+
+.contact__form form textarea {
+	height: 180px;
+	width: 100%;
+	background: transparent;
+	border: 1px solid #e1e1e1;
+	font-size: 14px;
+	color: #444444;
+	padding-top: 12px;
+	padding-left: 20px;
+	margin-bottom: 14px;
+	resize: none;
+}
+
+
+.contact__form form textarea:last-child {
+	color: #444444;
+}
+
+
+.contact__form form button {
+	width: 100%;
+}
+  </style>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="text-center">О Нас</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <img src="https://avatars.mds.yandex.net/get-zen_doc/118284/pub_5fcfcfffc7b1a605788f41aa_5fd2ddad40dbc009fcdc065f/scale_1200">
+          </div>
+
+        <div class="col-lg-6 col-md-6">
+            <div class="contact__form">
+              <div class="contact__form__title">
+                <h2>Свяжитесь с нами</h2>
+                <p>
+                    Мы представляем вашему вниманию широчайший ассортимент мужских
+                    костюмов – как в полных комплектациях, так и отдельные элементы.
+                    Здесь вы также можете подобрать необходимые аксессуары и
+                    дополнительные предметы одежды, такие как рубашки и галстуки.
+                </p>
+                  <p>
+                      Мы уже много лет занимаемся реализацией качественных костюмов,
+                      каждый из которых проходит тщательную проверку и осмотр перед
+                      погрузкой у фабрики-поставщика. Сотрудничество с высококлассными
+                      специалистами своего дела, позволяет нам удовлетворять запросы
+                      каждого покупателя.
+                  </p>
+              </div>
+              <form action="{% url 'feedback' %}" method="post">
+
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit" class="site-btn">Отправить</button>
+              </form>
+            </div>
+          </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2>Контакты для связи</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+          {% for contact in contacts %}
+        <p>{{ contact.name }}</p>
+
+          {% endfor %}
+      </div>
+    </div>
+  </div>
+</body>
+
+{% endblock content %}
