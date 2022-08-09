@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from django.views.generic import CreateView
 
-from .models import ContactLink, ContactModel
+from .models import ContactLink, About  # ContactModel
 from .forms import ContactForms
 
 
@@ -14,7 +14,14 @@ class ContactView(View):
 
 
 class CreateContact(CreateView):
-#    model = ContactModel#.objects.all()
+    # model = ContactModel#.objects.all()
+    # template_name = 'contact/contact.html'
     form_class = ContactForms
-#    template_name = 'contact/contact.html'
     success_url = '/'
+
+
+class AboutView(View):
+    def get(self, request):
+        about = About.objects.last()
+        return render(request, 'contact/about.html', {"about": about})
+

@@ -5,6 +5,7 @@ from .models import Product
 
 class HomeView(ListView):
     model = Product
+    queryset = Product.objects.filter(draft = False)
     pagination_by = 12
     template_name = "suits/home.html"
 
@@ -16,7 +17,7 @@ class ProductListView(ListView):
     model = Product
 
     def get_queryset(self):
-        return Product.objects.filter(category__url=self.kwargs.get("slug")).select_related('category')
+        return Product.objects.filter(category__url=self.kwargs.get("slug"), draft=False).select_related('category')
 
 
 class ProductDetailView(DetailView):

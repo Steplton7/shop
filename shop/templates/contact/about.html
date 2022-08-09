@@ -79,7 +79,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h1 class="text-center">Обратная связь</h1>
+        <h1 class="text-center">О нас</h1>
       </div>
     </div>
   </div>
@@ -87,44 +87,23 @@
   <div class="container">
     <div class="row">
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-            <img src="{% static 'img/reymond.jpg' %}">
+            <img src="{% static 'img/mike_pearson.jpg' %}">
           </div>
 
         <div class="col-lg-6 col-md-6">
             <div class="contact__form">
               <div class="contact__form__title">
-                <h2>Свяжитесь с нами</h2>
-
+                <h2></h2>
+                  {{ about.text|safe }}
               </div>
-              <form action="{% url 'feedback' %}" method="post">
 
-                {% csrf_token %}
-                {{ form }}
-                <button type="submit" class="site-btn">Отправить</button>
-              </form>
             </div>
           </div>
     </div>
   </div>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <h2>Контакты для связи</h2>
-      </div>
-    </div>
-  </div>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-          {% for contact in contacts %}
-        <p>{{ contact.name }}</p>
-
-          {% endfor %}
-      </div>
-    </div>
-  </div>
 </body>
+
 
 {% endblock content %}

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% load static %}
 {% block content %}
 <div id="carousel-ex" class="carousel slide carousel-fade pt-4" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -10,7 +11,7 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
-          <div class="view"  style="background-image: url('img/sale__.jpg') ;
+          <div class="view"  style="background-image: url({% static 'img/sale__.jpg' %}) ;
           background-repeat: no-repeat; background-size: cover;">
             <div class="mask rgba-black-strong d-flex
             justify-content-center align-items-center">

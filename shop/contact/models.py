@@ -1,3 +1,4 @@
+from ckeditor.fields import RichTextField
 from django.db import models
 
 
@@ -27,3 +28,18 @@ class ContactLink(models.Model):
     class Meta:
         verbose_name = 'Контакт'
         verbose_name_plural = 'Контакты'
+
+
+class About(models.Model):
+    mini_text = RichTextField()
+    text = RichTextField()
+
+    def __str__(self):
+        return self.mini_text
+
+    class Meta:
+        verbose_name = 'Текст о нас'
+        verbose_name_plural = 'О нас'
+
+class ImageAbout(models.Model):
+    image = models.ImageField(upload_to="about/")

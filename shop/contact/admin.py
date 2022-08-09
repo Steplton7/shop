@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ContactModel, ContactLink
+from .models import ContactModel, ContactLink, About, ImageAbout
 
 # Register your models here.
 
@@ -11,4 +11,5 @@ class ContactModelAdmin(admin.ModelAdmin):
 
 
 admin.site.register(ContactLink)
-
+admin.site.register(About)
+admin.site.register(ImageAbout)
