@@ -1,5 +1,6 @@
-{% load menu_tags %}
+{% load menu_tags cache %}
 
+{% cache 5000 middle_nav %}
      <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5">
         <sapn class="navbar-brand">Каталог:</sapn>
 
@@ -21,3 +22,4 @@
           </form>
         </div>
       </nav>
+{% endcache %}
